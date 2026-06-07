@@ -91,6 +91,16 @@ Return the exact line number(s) where the error occurred.
     return result.error_lines
 
 
+@app.get("/")
+def root():
+    return {"message": "Code Interpreter API", "endpoint": "/code-interpreter"}
+
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
+
 @app.post("/code-interpreter", response_model=CodeResponse)
 def code_interpreter(req: CodeRequest):
 
